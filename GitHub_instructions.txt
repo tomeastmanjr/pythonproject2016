@@ -1,7 +1,26 @@
 Git Hub Plan
-- Tom will create the GitHub master
-- The master will be called pythonproject2016
-- This is the master address
-  - https://github.com/tomeastmanjr/pythonproject2016
+- Tom will create the GitHub MASTER
+- The MASTER will be called pythonproject2016
+- This is the MASTER (production) address
+  * https://github.com/tomeastmanjr/pythonproject2016
 - Tom will push a template to the master for all work to start from
-- Everyone will work from their own branch of the master
+- We will all have a local master and a local branch
+- Everyone will work from their own branch of the MASTER
+  * To create a branch, paste the following, changing my name to yours
+    - git checkout -b toms_branch
+  * To confirm you are on a new branch
+    - git status
+  * To double check what branch you are on
+    - git branch
+  * To switch branches
+    - git checkout name_of_branch
+- A few times a day we will pull down the online master to our local master
+- When you are ready to commit changes
+  * pull online master to make sure we are current
+    - probable next command is merge toms_branch master
+    - deal with the conflicts one by one
+    - git commit -m "add your comments here"
+    - git push origin master
+    - delete old toms_branch
+    - create new branch called toms_branch
+    - carry on
