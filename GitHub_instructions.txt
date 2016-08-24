@@ -17,13 +17,15 @@ Git Hub Plan
 - A few times a day we will pull down the online master to our local master
 - When you are ready to commit changes
   * pull online master to make sure we are current
-    - From your local MASTER
-      - git merge toms_branch master
-      - deal with the conflicts one by one
-      - git commit -m "add your comments here"
-      - git push origin master
-    - delete old toms_branch
-      - git branch -d toms_branch
-    - create new branch called toms_branch
-      - git branch -b toms_branch
-    - carry on
+    - git checkout master     <---- to make sure you are on your master
+    - git pull origin master
+  * From your local MASTER
+    - git merge toms_branch master
+    - deal with the conflicts one by one
+    - git commit -m "add your comments here"
+    - git push origin master
+  * delete old toms_branch
+    - git branch -d toms_branch
+  * create new branch called toms_branch
+    - git branch -b toms_branch
+  * carry on
