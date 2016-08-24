@@ -27,5 +27,5 @@ Git Hub Plan
   * delete old toms_branch
     - git branch -d toms_branch
   * create new branch called toms_branch
-    - git branch -b toms_branch
+    - git checkout -b toms_branch
   * carry on
