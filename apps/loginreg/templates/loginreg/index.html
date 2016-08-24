@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Index</title>
+  {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'repp/css/style.css' %}"media="screen" title="no title"  charset="utf-8">
+<script src="{% static 'repp/js/main.js' %}" > </script>
+</head>
+<body>
+  <div id='new_user'>
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+    <form action="{% url 'repp:register' %}" method = "POST">
+      {% csrf_token %}
+      <label for= "first_name"> First Name </label>
+      <input type="text" name="first_name" value="">
+      <label for= "last_name"> Last Name </label>
+      <input type="text" name="last_name" value="">
+      <label for= "email"> Email </label>
+      <input type="text" name="email" value="">
+      <label for= "birthday"> Birthday </label>
+      <input type="date" name="birthday" value="">
+      <label for= "username"> Username </label>
+      <input type="text" name="username" value="">
+      <label for= "password"> Password </label>
+      <input type="password" name = "password">
+      <label for= "confirm_password"> Confirm Password </label>
+      <input type="password" name = "confirm_password">
+      <input type="submit" value="Register">
+    </form>
+  </div>
+  <div id='returning_user'>
+    <form action="{% url 'repp:login' %}" method = "POST">
+      {% csrf_token %}
+      <label for= "email"> Email: </label>
+      <input type="text" name="email" value="">
+      <label for= "password"> Password: </label>
+      <input type="password" name = "password">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+define our own personal goals
+- Tom
+  - figure out how to, and then incorporate pre-made apps that i find
+  - work a solid project plan in regards to githib collaboration
+  - create a basic app that does the following at a minimum
+      - creates a user (already done)
+      - that user creates a loan (manytomany similar to trip buddy)
+      - a borrower pays back a loan (manytomany with a status update)
+      - a REPP score is calculated (optional)
+  - Use Bootstrap or another framework to make it look good.
+
+- Mo
+  - experience a real life scenario of creating a project
+  - continue building technical skills thru hands on work
+  - do individual tasks to the best of my ability
+  - commit to specific tasks and really shine in them
+
+- Ryan
+  - Solidify and perfect skills learned already
+  - experience at least 3 new things at a basic level
+  - figure out how to, and then incorporate pre-made apps that i find
+  - become more proficient at jQuery and Django
+  - Experiment with Bootstrap or others
+  - Make a crisp and clean project
+
+ define our goals for the project
+
+ - Create a project in a real world scenario utilizing the proper tools (GitHub, wireframe, project planning, project status meetings)
+    Setup GitHub
+      - create a master
+      - create working branches for tom, ryan and mo
+      - create a file in each, practice merging
+      - be able to pull new commits to our AWS instance and make it work
+    design our initial wireframe
+      - what main pages
+        - login/home page
+        - user dashboard
+          - optional calendar
+        - loan info page
+        - user info
+        - bank info
+        - card info
+        - REPP score
+
+
+ - Have a clean, well displayed, working project for our presentation
+    - Use Bootstrap as our framework
+        - all of us
+    - On Thursday afternoon, write out a presentation rough draft schedule. Finalize first thing Friday morning
+        - all of us
+    - Do a walkthru of our project after the friday morning meeting
+        - all of us
+    - Work off of the wireframe design
+        - Mo to do
+ - technical minimums commited to
+    - creates a user (already done)
+      ** basic table structure set up by 5pm Wednesday
+    - that user creates a loan (manytomany similar to trip buddy?)
+      ** basic table structure set up by 5pm Wednesday
+    - a borrower pays back a loan (manytomany with a status update?)
+      ** basic table structure set up by 5pm Wednesday
+    - Have it deployed on AWS with actual info in the DB for the presentation
+      ** First deploy after thursday afternoon status meeting
+    - a REPP score is calculated (optional)
+
+
+Schedule
+- Wednesday
+  - 9am Team Meeting
+  - 10am Go over wireframe
+  - 3pm 20 minute status update meeting
+    - Have git structure mapped out and instructions written
+      - Tom to do
+    - Do git walkthrough
+  - 4:30 review days tasks
+  - 5pm Table structures need to be completed
+      - ryan to do
+
+- Thursday
+  - 9am Team Meeting
+  - 3pm Status update and planning meeting
+      - Write out presentation rough draft schedule
+  - 5:00 review days tasks
+  - 5:30 pm first deploy
+
+
+- Friday
+  - 9am Team Meeting
+    - Do a project walkthrough
+    - Finalize presentation plan

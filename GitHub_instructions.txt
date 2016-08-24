@@ -1,0 +1,7 @@
+Git Hub Plan
+- Tom will create the GitHub master
+- The master will be called pythonproject2016
+- This is the master address
+  - https://github.com/tomeastmanjr/pythonproject2016
+- Tom will push a template to the master for all work to start from
+- Everyone will work from their own branch of the master

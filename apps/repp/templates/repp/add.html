@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add</title>
+  {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'repp/css/style.css' %}"media="screen" title="no title"  charset="utf-8">
+<script src="{% static 'repp/js/main.js' %}" > </script>
+</head>
+<body>
+  <h1>Add.html Page</h1>
+  <p>ID in session = {{request.session.id}}</p>
+  <p>Username in session = {{request.session.username}}</p>
+  <p><a href="{% url 'repp:show' %}">Show Page</a></p>
+  <p><a href="{% url 'repp:index' %}">Home Page</a></p>
+  <p></p>
+  <p><a href="{% url 'loginreg:logout' %}">Logout</a></p>
+</body>
+</html>
