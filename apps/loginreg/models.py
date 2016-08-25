@@ -32,6 +32,8 @@ class UserManager(models.Manager):
             errors.append("Please enter a valid username")
         if not len(password)>5 and password == confirm_password:
             errors.append("Please enter a valid password")
+        if not len(ssn)==9:
+            errors.append("Enter your 9 digit Social Security Number")
         if errors:
             return (False, errors)
         else:
