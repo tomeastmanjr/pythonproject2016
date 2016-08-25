@@ -14,7 +14,7 @@ class Loan(models.Model):
 class Lender(models.Model):
     loan = models.ForeignKey('Loan')
     user = models.ForeignKey('loginreg.User')
-    lend_amount = models.DecimalField(max_length=19, deciaml_places=2)
+    lend_amount = models.DecimalField(max_digits=19, decimal_places=2)
     min_payment_date = models.DateField()
     payment_deadline = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -22,8 +22,8 @@ class Lender(models.Model):
 class Borrower(models.Model):
     loan = models.ForeignKey('Loan')
     user = models.ForeignKey('loginreg.User')
-    minimum = models.DecimalField(max_length=19, deciaml_places=2)
-    total_amount = models.DecimalField(max_length=19, deciaml_places=2)
+    minimum = models.DecimalField(max_digits=19, decimal_places=2)
+    total_amount = models.DecimalField(max_digits=19, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 class Card(models.Model):
