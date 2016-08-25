@@ -64,3 +64,12 @@ def update(request):
 
     # return redirect(reverse('repp:show', kwargs={"trip_id":selected_trip.id}))
     return redirect(reverse('repp:index'))
+
+def test(request):
+    return render(request, 'repp/bootstrap_test.html')
+
+def about(request):
+    return render(request, 'repp/about.html')
+
+def contact(request):
+    return render(request, 'repp/contact.html')
