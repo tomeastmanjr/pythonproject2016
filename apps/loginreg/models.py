@@ -33,11 +33,10 @@ class UserManager(models.Manager):
         if not len(password)>5 and password == confirm_password:
             errors.append("Please enter a valid password")
         if errors:
-            return (True, errors)
+            return (False, errors)
         else:
-            password = password.encode()
-            pwhash = bcrypt.hashpw(password, bcrypt.gensalt())
-            return (False, reg_data)
+            u = self.create(first_name=first_name, last_name=last_name, email=email, username=username, ssn=ssn, password=hashed)
+            return (True, u)
 
     def login(self, log_data):
         email = log_data['email']

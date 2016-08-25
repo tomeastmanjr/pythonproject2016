@@ -8,15 +8,12 @@ def index(request):
 
 def login(request):
     user = User.objects.login(request.POST)
-    if user[0] ==False:
-        User.objects.create(first_name = request.POST['first_name'], last_name = request.POST['last_name'], email = request.POST['email'], username = request.POST['username'], password = pwhash, ssn= request.POST['ssn'])
+    if user[0]:
+        request.session['username']= user[1].username
         request.session['id']= user[1].id
         return redirect('repp:index')
-    else:
-        errors = register[1]
-        for error in errors:
-            messages.add_message(request, messages.ERROR, error)
-        return redirect('loginreg:index')
+    messages.add_message(request, messages.ERROR, user[1])
+    return redirect('loginreg:index')
 
 def register(request):
     user = User.objects.register(request.POST)
