@@ -3,29 +3,41 @@ from django.db import models
 
 import bcrypt
 import re
-
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 
 class UserManager(models.Manager):
     def register(self, reg_data):
+        errors = []
         first_name = reg_data['first_name']
         last_name = reg_data['last_name']
         email = reg_data['email']
-        birthday = reg_data['birthday']
         username = reg_data['username']
         password = reg_data['password']
         confirm_password = reg_data['confirm_password']
+        ssn = reg_data['ssn']
         hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
         try:
             user = self.get(email=email)
         except:
             user = False
-        if len(first_name) >1 and len(first_name) >1 and len(username) >2 and len(password) >7 and password == confirm_password and not user:
-        # still need to create our checks for birthday. maybe set up to have person be required to be 18
-            u = self.create(first_name=first_name, last_name=last_name, email=email, birthday=birthday, username=username, password=hashed)
-            print u
-            print reg_data
-            return (True,u)
-        return (False,"Try again using only letters in name and username and double check your password")
+        if not first_name:
+            errors.append("Please enter a valid first name")
+        if not last_name:
+            errors.append("Please enter a valid last name")
+        if not EMAIL_REGEX.match(email):
+            errors.append("Please enter a valid email")
+        if user:
+            errors.append("Email already exists. Please enter a different email")
+        if not len(username)>3:
+            errors.append("Please enter a valid username")
+        if not len(password)>5 and password == confirm_password:
+            errors.append("Please enter a valid password")
+        if errors:
+            return (True, errors)
+        else:
+            password = password.encode()
+            pwhash = bcrypt.hashpw(password, bcrypt.gensalt())
+            return (False, reg_data)
 
     def login(self, log_data):
         email = log_data['email']
@@ -38,12 +50,12 @@ class UserManager(models.Manager):
 
 
 class User(models.Model):
-    first_name = models.CharField(max_length=60)
-    last_name = models.CharField(max_length=60)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=150)
-    birthday = models.DateField()
     username = models.CharField(max_length=60)
     password = models.CharField(max_length=100)
+    ssn = models.CharField(max_length = 20)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
