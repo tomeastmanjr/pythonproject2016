@@ -66,10 +66,15 @@ def update(request):
     return redirect(reverse('repp:index'))
 
 def test(request):
+    if 'id' not in request.session:
+        return redirect(reverse('loginreg:index'))
     return render(request, 'repp/bootstrap_test.html')
 
 def about(request):
+    if 'id' not in request.session:
+        return redirect(reverse('loginreg:index'))
     return render(request, 'repp/about.html')
 
-def contact(request):
-    return render(request, 'repp/contact.html')
+def logout(request):
+    request.session.clear()
+    return redirect('loginreg:index')

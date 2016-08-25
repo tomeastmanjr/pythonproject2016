@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^update$', views.update, name="update"),
     url(r'^test$', views.test, name="test"),
     url(r'^about$', views.about, name="about"),
-    url(r'^contact$', views.contact, name="contact")
+    url(r'^logout$', views.logout, name="logout")
     ]

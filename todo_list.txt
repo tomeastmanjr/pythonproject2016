@@ -81,10 +81,10 @@ Schedule
   - 3pm Status update and planning meeting
       - Write out presentation rough draft schedule
   - 5:00 review days tasks
-  - 5:30 pm first deploy
 
 
 - Friday
   - 9am Team Meeting
+  - 11:00am deploy
     - Do a project walkthrough
     - Finalize presentation plan

@@ -1,0 +1,30 @@
+What to decide upon
+- Who will present what
+- Want we want to show
+- Whose computer to use
+- What we want in the database (must be on the presentation computer)
+- Prep a few Q&A responses
+  - What we learned
+  - What was our favorite part
+  - What was the hardest part
+  - What surprised us
+  - What would we do differently
+  - What advice would we give
+
+Sample run through
+  - Intro - All
+    - Names, group name
+  - What our project is - Tom
+    - We created the base for a peer to peer lending app
+  - What technologies we used - Mo
+    - GitHub
+    - Git
+    - django
+    - bootstrap
+    - mysql for the diagram
+    - balsamiq
+    - AWS?
+  - Start the Walkthru - Ryan
+    - Ryan discuss the tables
+  - Run a Q&A - Tom
+    - Need a manager for this who fields the questions, either answers them or passes the question off to a particular person (straight call them out, so no hesitancy)
