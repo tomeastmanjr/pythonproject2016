@@ -5,7 +5,7 @@ Git Hub Plan
   * https://github.com/tomeastmanjr/pythonproject2016
 - Tom will push a template to the master for all work to start from
   * In this project folder, I will create the .gitignore file
-    - This will have *.pyc and db.sqlite3 in it
+    - This will have *.pyc and db.sqlite3 and .DS_Store in it
 - We will all have a local master and a local branch
 - Everyone will work from their own branch of the MASTER
   * To create a branch, paste the following, changing my name to yours
