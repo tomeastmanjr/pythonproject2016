@@ -30,8 +30,10 @@ class UserManager(models.Manager):
             errors.append("Email already exists. Please enter a different email")
         if not len(username)>3:
             errors.append("Please enter a valid username")
-        if not len(password)>5 and password == confirm_password:
+        if not len(password)>5:
             errors.append("Please enter a valid password")
+        if not password == confirm_password:
+            errors.append("Make sure password and confirm password are matching")
         if not len(ssn)==9:
             errors.append("Enter your 9 digit Social Security Number")
         if errors:
