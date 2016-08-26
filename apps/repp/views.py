@@ -10,10 +10,8 @@ def index(request):
 
     user = User.objects.get(id=request.session["id"])
     context = {
-     "users":User.objects.all()[:100],
-    #     "me": (Trip.objects.filter(creator=user) | Trip.objects.filter(travelers__id=user.id)).distinct(),
-    #     "notme": Trip.objects.all().exclude(creator=user).exclude(travelers__id=user.id),
-    #     "name": user.name
+        "lender": Lender.objects.filter(user__id=request.session["id"]),
+        "borrower": Borrower.objects.filter(user__id=request.session["id"])
     }
     return render(request, 'repp/index.html', context)
 
@@ -62,20 +60,32 @@ def create(request):
     else:
         messages.add_message(request, messages.SUCCESS, 'Try again')
         return redirect(reverse('repp:add_loan'))
-    # kwargs={"trip_id":loan.id}))
+    # kwargs={"loan_id":loan.id}))
 
-def update(request):
-# def update(request, trip_id):
-#     if 'id' not in request.session:
-#         return redirect(reverse('loginreg:index'))
-#
-#     userid = User.objects.get(id=request.session['id'])
-#     selected_trip = Trip.objects.get(id=trip_id)
-#     selected_trip.travelers.add(userid)
-
-    # return redirect(reverse('repp:show', kwargs={"trip_id":selected_trip.id}))
+def update(request, loan_id):
+    if 'id' not in request.session:
+        return redirect(reverse('loginreg:index'))
+    if request.POST["payment_deadline"] and request.POST["min_payment_date"] and request.POST["descrption"] and request.POST["loan_name"]:
+        a = Loan.objects.get(id=loan_id)
+        a.descrption = request.POST["descrption"]
+        a.loan_name = request.POST["loan_name"]
+        a.payment_deadline = datetime.strptime(request.POST["payment_deadline"], '%Y-%m-%d')
+        a.min_payment_date = datetime.strptime(request.POST["min_payment_date"], '%Y-%m-%d')
+        # today = datetime(year=now.year, month=now.month, day=now.day)
+        # if a.payment_deadline >= today:
+        a.save()
+        # else:
+        #     print a.min_payment_date
+        #     messages.add_message(request, messages.SUCCESS, 'Try again')
+        #     a = Loan.objects.get(id=loan_id)
+        #     return redirect(reverse('repp:update', kwargs={"loan_id":a.id}))
+    else:
+        messages.add_message(request, messages.SUCCESS, 'Try again')
+        a = Loan.objects.get(id=loan_id)
+        return redirect(reverse('repp:update', kwargs={"loan_id":a.id}))
     return redirect(reverse('repp:index'))
 
+    
 def test(request):
     if 'id' not in request.session:
         return redirect(reverse('loginreg:index'))

@@ -58,7 +58,6 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{% url 'repp:add_loan' %}">Add</a></li>
-              <li><a href="{% url 'repp:show_loan' %}">Show</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -87,29 +86,17 @@
             </tr>
           </thead>
           <tbody>
+          {% for loans in lender %}
             <tr>
-              <td>Joe Pesci</td>
-              <td>500</td>
-              <td>BC trip</td>
-              <td>50</td>
+              <td><a href="{% url 'repp:show_loan' loan_id=loans.loan.id %}">{{loans.loan.loan_name}}</a></td>
+              <td>{{loans.lend_amount}}</td>
+              <td>{{loans.loan.descrption}}</td>
+              <td>{{loans.lend_amount}}</td>
             </tr>
-            <tr>
-              <td>Robert Deniro</td>
-              <td>400</td>
-              <td>Vegas trip</td>
-              <td>200</td>
-            </tr>
-            <tr>
-              <td>Larry David</td>
-              <td>300</td>
-              <td>Ducks game</td>
-              <td>100</td>
-            </tr>
+          {% endfor %}
           </tbody>
         </table>
       </div>
-
-
 
 
 
@@ -126,35 +113,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Steven Seagal</td>
-            <td>500</td>
-            <td>Dojo training</td>
-            <td>100</td>
-
-          </tr>
-          <tr>
-            <td>Chuck Norris</td>
-            <td>200</td>
-            <td>Cougars game</td>
-            <td>60</td>
-          </tr>
-          <tr>
-            <td>Chuck Liddell</td>
-            <td>100</td>
-            <td>Fantasy League</td>
-            <td>50</td>
-          </tr>
+          {% for borrowers in borrower %}
+            <tr>
+              <td><a href="{% url 'repp:show_loan' loan_id=borrowers.loan.id %}">{{borrowers.loan.loan_name}}</a></td>
+              <td>{{borrowers.total_amount}}</td>
+              <td>{{borrowers.loan.descrption}}</td>
+              <td>{{borrowers.total_amount}}</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
 
-
-
-
-
-
-</div>
 
 
 
