@@ -61,6 +61,8 @@
   <p>1</p>
   <p>2</p>
 
+    <h1>Hello {{request.session.username}}</h1>
+
 {% for lender in loan.lenderloan.all %}
   {% for borrower in loan.borrowerloan.all %}
   <form action="{% url 'repp:update' loan_id=lender.loan.id%}" method="POST">
