@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Index</title>
+  <title>Add</title>
   {% load staticfiles %}
 
 <!-- Bootstrap -->
@@ -20,14 +20,6 @@
 <link rel="stylesheet" href="{% static 'repp/css/style.css' %}"media="screen" title="no title"  charset="utf-8">
 </head>
 <body>
-  <p>1</p>
-  <p>2</p>
-
-  <h1>Index.html Page</h1>
-  <p>ID in session = {{request.session.id}}</p>
-  <p>Username in session = {{request.session.username}}</p>
-
-
 <!-- Fixed navbar -->
   <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -66,6 +58,18 @@
         </div>
       </nav>
 
+  <p>1</p>
+  <p>2</p>
+
+  <p>ID in session = {{request.session.id}}</p>
+  <p>Username in session = {{request.session.username}}</p>
+
+
+
+
+
+
+
 
 
 
@@ -73,25 +77,6 @@
 
 
   <script src="{% static 'repp/js/main.js' %}" > </script>
-  <div class="container">
-
-        <!-- Main component for a primary marketing message or call to action -->
-        <div class="jumbotron">
-          <h1>This is the Home Page</h1>
-          <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-          <p>To see the difference between static and fixed top navbars, just scroll.</p>
-          <p>
-            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs »</a>
-          </p>
-        </div>
-
-      </div>
-<!-- /container -->
-
-
-
-
-
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
