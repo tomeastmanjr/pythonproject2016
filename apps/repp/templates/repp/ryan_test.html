@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Loan Creation</h3>
+    <form class="make_loan" action="{% url 'create' id=request.session.id %}" method="post">
+      {%csrf_token%}
+      <p>Loan Name: <input type="text" name="loan_name"></p>
+      <p>Loan Description: <input type="text" name="loan_desc"></p>
+      <p> Money to Lend: <input type="range" name="money_lend" min="5" max = "1000"></p>
+      <p>Minimum Payment Deadline: <input type="date" name="min_payment"></p>
+      <p>Payment Deadline: <input type="date" name="payment_deadline"></p>
+      <input type="submit" name="submit" value="Create Loan">
+    </form>
+
+
+  </body>
+</html>
