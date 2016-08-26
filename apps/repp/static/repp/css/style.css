@@ -1,9 +1,8 @@
-h1{
+h1, h2, p, th, label{
   color: white;
 }
 body{
   background-image: url("../img/9RD8UKZ8H8.jpg");
-}
-label{
-  color: white;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }

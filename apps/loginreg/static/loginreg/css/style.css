@@ -24,9 +24,13 @@
   width: 350px;
   border: solid black 1px;
 }
-h2{
-  border: solid black 2px;
-  background: lightgreen;
+h1, h2, p, th, label{
+  color: white;
+}
+body{
+  background-image: url("../img/RKS9M8PY0X.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 h4{
   color: green;
