@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Add</title>
+  <title>Add a new loan</title>
   {% load staticfiles %}
 
 <!-- Bootstrap -->
@@ -58,19 +58,52 @@
         </div>
       </nav>
 
+
   <p>1</p>
   <p>2</p>
 
+  <h1>Add.html Page</h1>
   <p>ID in session = {{request.session.id}}</p>
   <p>Username in session = {{request.session.username}}</p>
 
-
-
-
-
-
-
-
+  <form>
+    <div class="form-group">
+      <label for="borrower_name">Here is the info for your loan to: {borrower.first_name} {borrower.last_name}</label>
+    </div>
+    <div class="form-group">
+      <label for="loan_name">Here is your loans name</label>
+      <input type="text" class="form-control" id="loan_name" value="{loan.name}">
+    </div>
+    <div class="form-group">
+      <label for="lend_amount">This was the original amount: {lend_amount}</label>
+    </div>
+    <div class="form-group">
+      <label for="loan_remaining">This is the amount remaining: {loan_remaining}</label>
+    </div>
+    <div class="form-group">
+      <label for="loan_description">This description is for your eyes only</label>
+      <textarea class="form-control" rows="3" id="loan_description">{loan_description}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="payment_deadline">When do you want to be paid back completely</label>
+      <input type="date" class="form-control" id="payment_deadline" value="{{loan.payment_deadline|date:'Y-m-d'}}">
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Do you want to set up a payment schedule?
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="min_payment_date">When do you wnat the first payment</label>
+      <input type="date" class="form-control" id="min_payment_date" value="{{loan.min_payment_date|date:'Y-m-d'}}">
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> I have read the terms and conditions
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default">Create Loan</button>
+  </form>
 
 
 

@@ -17,14 +17,14 @@ def index(request):
     }
     return render(request, 'repp/index.html', context)
 
-def show_loan(request):
+def show_loan(request, loan_id):
 # def show(request, trip_id):
     if 'id' not in request.session:
         return redirect(reverse('loginreg:index'))
 
     context = {
-        # "trip": Trip.objects.get(id=trip_id),
-        # "users": User.objects.all()
+        "loan": Loan.objects.get(id=loan_id),
+        "users": User.objects.all()
     }
     return render(request, 'repp/show_loan.html', context)
 
@@ -36,6 +36,7 @@ def add_loan(request):
 
 def ryan_test(request):
     return render(request, 'repp/ryan_test.html')
+
 def create(request):
     errors = []
     if 'id' not in request.session:
@@ -49,10 +50,10 @@ def create(request):
 
        if len(description) >1 and len(description) >1 and trip_begin > datetime.now() and trip_end > trip_begin:
            trip = Trip.objects.create(description=description, trip_begin=trip_begin, trip_end=trip_end, destination=destination, creator=user)
-           return redirect(reverse('repp:show_loan', kwargs={"trip_id":trip.id}))
-     else:
-         messages.add_message(request, messages.SUCCESS, 'Try again')
-         return redirect(reverse('repp:add_loan'))
+           return redirect(reverse('repp:show_loan', kwargs={"loan_id":loan.id}))
+    else:
+        messages.add_message(request, messages.SUCCESS, 'Try again')
+        return redirect(reverse('repp:add_loan', kwargs={"loan_id":loan.id}))
     # kwargs={"trip_id":trip.id}))
     pass
 
