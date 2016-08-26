@@ -36,17 +36,23 @@ def add_loan(request):
 
 def ryan_test(request):
     return render(request, 'repp/ryan_test.html')
-def create(request, id):
+def create(request):
+    errors = []
     if 'id' not in request.session:
         return redirect(reverse('loginreg:index'))
-    #     user = User.objects.get(id=request.session['id'])
-    #     description = request.POST["description"]
-    #     trip_begin = datetime.strptime(request.POST["trip_begin"], '%Y-%m-%d')
-    #     trip_end = datetime.strptime(request.POST["trip_end"], '%Y-%m-%d')
-    #     destination=request.POST["destination"]
-    #
+    if request.POST["payment_deadline"] and request.POST["min_payment_date"]:
+       user = User.objects.get(id=request.session['id'])
+       description = request.POST["description"]
+       payment_deadline = datetime.strptime(request.POST["payment_deadline"], '%Y-%m-%d')
+       min_payment_date = datetime.strptime(request.POST["min_payment_date"], '%Y-%m-%d')
+       destination=request.POST["destination"]
 
-    return redirect(reverse('repp:ryan_test'))
+       if len(description) >1 and len(description) >1 and trip_begin > datetime.now() and trip_end > trip_begin:
+           trip = Trip.objects.create(description=description, trip_begin=trip_begin, trip_end=trip_end, destination=destination, creator=user)
+           return redirect(reverse('repp:show_loan', kwargs={"trip_id":trip.id}))
+     else:
+         messages.add_message(request, messages.SUCCESS, 'Try again')
+         return redirect(reverse('repp:add_loan'))
     # kwargs={"trip_id":trip.id}))
     pass
 
