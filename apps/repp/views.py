@@ -17,16 +17,17 @@ def index(request):
     }
     return render(request, 'repp/index.html', context)
 
-def show_loan(request, loan_id):
-# def show(request, trip_id):
+def show_loan(request):
+# def show_loan(request, loan_id):
     if 'id' not in request.session:
         return redirect(reverse('loginreg:index'))
 
-    context = {
-        "loan": Loan.objects.get(id=loan_id),
-        "users": User.objects.all()
-    }
-    return render(request, 'repp/show_loan.html', context)
+    # context = {
+    #     "loan": Loan.objects.get(id=loan_id),
+    #     "users": User.objects.all()
+    # }
+    # return render(request, 'repp/show_loan.html', context)
+    return render(request, 'repp/show_loan.html')
 
 def add_loan(request):
     if 'id' not in request.session:

@@ -4,7 +4,8 @@ import re
 urlpatterns = [
     url(r'^$', views.index, name="index"),
     url(r'^add_loan$', views.add_loan, name="add_loan"),
-    url(r'^show_loan/(?P<loan_id>\d+)$', views.show_loan, name="show_loan"),
+    # url(r'^show_loan/(?P<loan_id>\d+)$', views.show_loan, name="show_loan"),
+    url(r'^show_loan$', views.show_loan, name="show_loan"),
     url(r'^create_loan$', views.create, name="create"),
     url(r'^update$', views.update, name="update"),
     url(r'^test$', views.test, name="test"),
