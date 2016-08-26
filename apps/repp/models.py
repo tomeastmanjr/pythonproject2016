@@ -12,16 +12,16 @@ class Loan(models.Model):
     # def __repr__(self):
     #     return self.destination + " " + self.creator.name + " " + str(self.travelers.all())
 class Lender(models.Model):
-    loan = models.ForeignKey('Loan')
-    user = models.ForeignKey('loginreg.User')
+    loan = models.ForeignKey('Loan', related_name = 'lenderloan')
+    user = models.ForeignKey('loginreg.User', related_name = 'userlender')
     lend_amount = models.DecimalField(max_digits=19, decimal_places=2)
     min_payment_date = models.DateField()
     payment_deadline = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 class Borrower(models.Model):
-    loan = models.ForeignKey('Loan')
-    user = models.ForeignKey('loginreg.User')
+    loan = models.ForeignKey('Loan', related_name = 'borrowerloan')
+    user = models.ForeignKey('loginreg.User', related_name = 'userborrower')
     minimum = models.DecimalField(max_digits=19, decimal_places=2)
     total_amount = models.DecimalField(max_digits=19, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)

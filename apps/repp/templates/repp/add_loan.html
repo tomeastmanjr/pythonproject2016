@@ -51,8 +51,7 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="{% url 'repp:add_loan' %}">Add</a></li>
-              <li><a href="{% url 'repp:show_loan' %}">Show</a></li>
+              <li><a href="{% url 'repp:add_loan' %}">New Loan</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -62,44 +61,49 @@
   <p>1</p>
   <p>2</p>
 
-  <form>
+  <form action="{% url 'repp:create' %}" method="POST">
+    {% csrf_token %}
     <div class="form-group">
       <label for="borrower_email">Who are you lending to</label>
-      <input type="text" class="form-control" id="borrower_email" placeholder="Enter the email of the person you want to lend to">
+      <input type="text" class="form-control" name="borrower_email" id="borrower_email" placeholder="Enter the email of the person you want to lend to">
     </div>
     <div class="form-group">
       <label for="loan_name">Give your loan a name</label>
-      <input type="text" class="form-control" id="loan_name" placeholder="Give your loan a name. Use 50 characters or less">
+      <input type="text" class="form-control" name="loan_name" id="loan_name" placeholder="Give your loan a name. Use 50 characters or less">
     </div>
     <div class="form-group">
-      <label for="loan_amount">Amount you want to lend</label>
-      <input type="number" class="form-control" id="loan_amount" placeholder="">
+      <label for="lend_amount">Amount you want to lend</label>
+      <input type="number" class="form-control" name="lend_amount" id="lend_amount" placeholder="">
     </div>
     <div class="form-group">
-      <label for="loan_description">This description is for your eyes only</label>
-      <textarea class="form-control" rows="3" id="loan_description"></textarea>
+      <label for="descrption">This description is for your eyes only</label>
+      <textarea class="form-control" rows="3" name="descrption" id="descrption"></textarea>
     </div>
     <div class="form-group">
       <label for="payment_deadline">When do you want to be paid back completely</label>
-      <input type="date" class="form-control" id="payment_deadline">
+      <input type="date" class="form-control" name="payment_deadline" id="payment_deadline">
     </div>
     <div class="checkbox">
       <label>
-        <input type="checkbox"> Do you want to set up a payment schedule?
+        <input type="checkbox" name="schedule_checkbox"> Do you want to set up a payment schedule?
       </label>
     </div>
     <div class="form-group">
       <label for="min_payment_date">When do you want the first payment</label>
-      <input type="date" class="form-control" id="min_payment_date">
+      <input type="date" class="form-control" name="min_payment_date" id="min_payment_date">
     </div>
     <div class="checkbox">
       <label>
-        <input type="checkbox"> I have read the terms and conditions
+        <input type="checkbox" name="read_checkbox"> I have read the terms and conditions
       </label>
     </div>
     <button type="submit" class="btn btn-default">Create Loan</button>
   </form>
-
+  {% if messages %}
+    {% for message in messages %}
+      <p>{{message}}</p>
+    {% endfor %}
+  {% endif %}
 
 
 
